@@ -4,7 +4,6 @@ const User = require('../models/User');
 const addUser = async (req, res) => {
     try {
         const newUser = await User.create({ username: req.body.username });
-        // await newUser.save();
         res.json(newUser);
     } catch (error) {
         res.status(500).json({ error: error.message })
@@ -32,7 +31,7 @@ const logExercise = async (req, res) => {
             date,
             duration,
             description,
-            date: date ? new Date() : new Date()
+            date: date ? new Date(date) : new Date()
         });
 
         await exercise.save();
