@@ -36,7 +36,13 @@ const logExercise = async (req, res) => {
 
         await exercise.save();
 
-        res.json(exercise);
+        res.json({
+            _id: exercise._id,
+            username: user.username,
+            date: exercise.date.toDateString(),
+            duration: exercise.duration,
+            description: exercise.description
+        });
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
