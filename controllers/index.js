@@ -37,7 +37,7 @@ const logExercise = async (req, res) => {
         await exercise.save();
 
         res.json({
-            _id: exercise._id,
+            _id: user._id,
             username: user.username,
             date: exercise.date.toDateString(),
             duration: exercise.duration,
